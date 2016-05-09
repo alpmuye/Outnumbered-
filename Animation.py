@@ -1,12 +1,11 @@
 #Adapted from class notes.
-#Main animation class that brings everything together.
 
 from tkinter import *
 
 class Animation(object):
-    
+
     def mousePressed(self, event): pass
-    def mouseMoved(self, event): pass 
+    def mouseMoved(self, event): pass
     def mouseReleased(self, event): pass
     def shiftMousePressed(self, event): pass
     def keyPressed(self, event): pass
@@ -34,7 +33,7 @@ class Animation(object):
         def redrawAllWrapper():
             self.canvas.delete("delete") #deletes only the canvas draws with
             self.redrawAll()            #the parameter delete. Efficiency!
-            self.canvas.update()        #i.e doesn't delete/redraw the 
+            self.canvas.update()        #i.e doesn't delete/redraw the
                                                                 #background.
         def mousePressedWrapper(event):
             self.mousePressed(event)
@@ -73,11 +72,10 @@ class Animation(object):
             redrawAllWrapper()
             # pause, then call timerFired again
             self.canvas.after(self.timerFiredDelay, timerFiredWrapper)
-            
+
         # init and get timerFired running
         self.init()
         timerFiredWrapper()
         # and launch the app
         root.mainloop()
         print("Bye")
-
